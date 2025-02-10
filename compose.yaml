@@ -30,8 +30,9 @@ services:
         # FAbric Settings
       
       TYPE: MODRINTH
-      MODRINTH_MODPACK: "./OP.mrpack"
+      MODRINTH_MODPACK: "/modpack/OP.mrpack"
 
     volumes:
         # attach the relative directory 'data' to the container's /data path
       - ../data:/data
+      - ./modpack:/modpack
