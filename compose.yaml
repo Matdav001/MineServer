@@ -1,3 +1,37 @@
 services:
   mc:
-    image:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+        # Java Settings
+      INIT_MEMORY: 4G
+      MAX_MEMORY: 20G
+      EULA: "TRUE"
+      USE_AIKAR_FLAGS: true
+      
+        # Server Settings
+      STOP_SERVER_ANNOUNCE_DELAY: 120
+      ONLINE_MODE: false
+      SERVER_NAME: "Let's Play"
+      MOTD: "\u00A77\u00A7lMinecraft\u00A7r\n\u00A78\u00A7lVanilla 1.21.4"
+      DIFFICULTY: hard
+      MODE: survival
+
+        # Player Settings
+      FORCE_GAMEMODE: true
+      PVP: true
+      ENABLE_STATUS: true
+      SPAWN_PROTECTION: 10
+      VIEW_DISTANCE: 16
+
+        # FAbric Settings
+      
+      TYPE: MODRINTH
+      MODRINTH_MODPACK: "./OP.mrpack"
+
+    volumes:
+        # attach the relative directory 'data' to the container's /data path
+      - ../data:/data
