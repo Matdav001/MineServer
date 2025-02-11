@@ -1,6 +1,7 @@
 services:
   mc:
     image: itzg/minecraft-server
+    restart: unless-stopped
     tty: true
     stdin_open: true
     ports:
@@ -11,6 +12,7 @@ services:
       MAX_MEMORY: 20G
       EULA: "TRUE"
       USE_AIKAR_FLAGS: true
+
       
         # Server Settings
       STOP_SERVER_ANNOUNCE_DELAY: 120
@@ -19,6 +21,7 @@ services:
       MOTD: "\u00A77\u00A7lMinecraft\u00A7r\n\u00A78\u00A7lVanilla 1.21.4"
       DIFFICULTY: hard
       MODE: survival
+      SEED: 217929591249
 
         # Player Settings
       FORCE_GAMEMODE: true
